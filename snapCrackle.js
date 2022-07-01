@@ -69,24 +69,20 @@ function snapCracklePrime(maxValue){
     let retorno = ""
 
     for(let i = 1; i <= maxValue; i++){
-        const constatacaoPrimo = numeroPrimo(i)
-
-        if(i % 2 != 0 && i % 5 == 0 && constatacaoPrimo == true){
+        
+        if(i % 2 != 0 && i % 5 == 0 && numeroPrimo(i)){
             retorno += "SnapCracklePrime, "
         }
-        else if(i % 2 != 0 && i % 5 == 0 && constatacaoPrimo == false){
+        else if(i % 2 != 0 && i % 5 == 0){
             retorno += "SnapCrackle, "
         }
-        else if(i % 2 !== 0){ 
-            retorno += "Snap, "
-        }
-        else if(i % 2 != 0 && constatacaoPrimo == true){
+        else if(i % 2 != 0 && numeroPrimo(i)){
             retorno += "SnapPrime, "
         }
-        else if(i % 2 != 0 && constatacaoPrimo == false){
+        else if(i % 2 != 0){
             retorno += "Snap, "
         }
-        else if(constatacaoPrimo == true){
+        else if(i == 2){
             retorno += "Prime, "
         }
         else if(i % 5 == 0){
@@ -96,7 +92,8 @@ function snapCracklePrime(maxValue){
             retorno += `${i}, `
         }
 
-        return retorno;
+        
     }
+    return retorno;
 }
 console.log(snapCracklePrime(15))
